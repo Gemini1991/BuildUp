@@ -1,0 +1,27 @@
+	////文本默认提示////////////////////////////////////////////////////////////
+	$('input:text').each(function(){  
+		if($(this).val() == "") {
+			$(this).val($(this).attr("tipVal")).css("color","#999999");		
+		}
+		$(this).focus(function(){
+			if($(this).val() == $(this).attr("tipVal")) {
+				$(this).val("").css("color","#000000");
+			}
+		}).blur(function(){
+			if($(this).val() == "") {
+				$(this).val($(this).attr("tipVal")).css("color","#999999");
+			} 
+		});  
+	});
+	
+	
+		if ($.trim($("#templateCode").val()) == $("#templateCode").attr("tipVal")) {
+			$.messager.alert("提示", "请输入模板编号","info", function () {
+				$("#templateCode").focus();
+		    });
+			return false;
+		}
+		
+		
+		
+		<input id="templateCode" type="text" name="templateCode" class="text" tipVal="修改页面该字段不能修改"/>
